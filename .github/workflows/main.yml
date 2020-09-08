@@ -1,0 +1,25 @@
+name: main
+
+on:
+  push:
+    paths-ignore:
+      - "**.md"
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "8.x"
+      - run: npm install
+      - uses: htynkn/aliyun-serverless-action@master
+        env:
+          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          REGION: cn-hangzhou
+          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
