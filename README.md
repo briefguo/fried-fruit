@@ -23,3 +23,13 @@
 - [ ] 评论，游客可用
 
 - [ ] 自动的开发日志
+
+## Reffenences
+
+- https://github.com/alibaba/funcraft/blob/master/docs/usage/getting_started-zh.md
+
+- [函数计算冷启动优化最佳实践](https://help.aliyun.com/document_detail/140338.html?spm=a2c4g.11186623.6.647.2a4daf5bW03oUd)
+
+- 降低冷启动概率：
+  - 使用定时触发器预热函数
+  - 使用 Initializer 函数入口，函数计算会异步调用初始化接口，消除掉 “User Code Init” 的时间，在函数计算系统升级或者函数更新过程中，用户对冷启动无感知。

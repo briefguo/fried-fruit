@@ -1,0 +1,6 @@
+RUNTIME nodejs12
+
+COPY ./package.json .
+COPY ./package-lock.json .
+
+RUN npm install

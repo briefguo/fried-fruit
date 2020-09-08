@@ -1,0 +1,39 @@
+ROSTemplateFormatVersion: "2015-09-01"
+Transform: "Aliyun::Serverless-2018-04-03"
+Resources:
+  fried-fruit-fried-fruit-1D809C16E057:
+    Type: "Aliyun::Serverless::Service"
+    Properties:
+      Description: 煎果
+      Role: "acs:ram::1700862427817132:role/fried-fruit-fried-fruitrole-28975940e7fe"
+      LogConfig:
+        Project: aliyun-fc-cn-hangzhou-99ac3a7d-a50a-5e4e-9d15-a406e477e7a6
+        Logstore: function-log
+      VpcConfig:
+        VpcId: vpc-bp14bljmvfaveol5mmfxh
+        VSwitchIds:
+          - vsw-bp12611tmylzzdt9rags0
+        SecurityGroupId: sg-bp14sdw77yg13vcgyj5p
+      NasConfig: Auto
+      InternetAccess: true
+    fried-fruit:
+      Type: "Aliyun::Serverless::Function"
+      Properties:
+        CodeUri: .
+        Description: 发布新版 by briefguo1599061668827
+        Handler: index.handler
+        Runtime: nodejs12
+        Timeout: 600
+        MemorySize: 2048
+      Events:
+        httpTrigger:
+          Type: HTTP
+          Properties:
+            Qualifier: fried-fruit
+            AuthType: anonymous
+            Methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - HEAD
