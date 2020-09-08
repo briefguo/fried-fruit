@@ -19,7 +19,7 @@ jobs:
       - run: npm install
       - uses: htynkn/aliyun-serverless-action@master
         env:
-          ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+          ACCOUNT_ID: ${{ secrets.ALIYUN_FC_ACCOUNT_ID }}
           REGION: cn-hangzhou
-          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+          ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESSKEY_ID }}
+          ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESSKEY_SECRET }}
